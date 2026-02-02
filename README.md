@@ -1,6 +1,6 @@
 # crafty_bay_app
 
-A new Flutter project.
+A new Crafty Bay Application
 
 ## Getting Started
 
