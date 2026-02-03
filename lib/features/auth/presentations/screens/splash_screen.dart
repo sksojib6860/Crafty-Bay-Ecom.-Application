@@ -13,7 +13,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
-    final localization = context.localizations;
+    final localization = context.l10n;
     final languageProvider = context.read<LanguageProviders>();
     return Scaffold(
       appBar: AppBar(title: Text(localization.hello)),
