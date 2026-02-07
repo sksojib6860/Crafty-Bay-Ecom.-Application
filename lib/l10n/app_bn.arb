@@ -1,5 +1,23 @@
 {
     "hello" : "হ্যালো",
-    "changeYourLanguage" : "আপনার ভাষা পরিবর্তন করুন"
+    "changeYourLanguage" : "আপনার ভাষা পরিবর্তন করুন",
+    "completeProfile" : "প্রোফাইল সম্পূর্ণ করুন",
+    "getStarted_your_details" : "আপনার বিবরণ দিয়ে ক্র্যাফটি বে এর সাথে থাকুন",
+    "firstName" : "নামের প্রথম অংশ",
+    "lastName" : "নামের শেষ অংশ",
+    "email" : "ইমেইল",
+    "phoneNumber" : "মোবাইল নাম্বার",
+    "address" : "ঠিকানা",
+    "password" : "পাসওয়ার্ড",
+    "signUp" : "রেজিষ্টেশন করুন",
+    "enterYourFirstName" : "নামের প্রথম অংশ লিখুন",
+    "enterYourLastName" : "নামের শেষ অংশ লিখুন",
+    "enterYourEmail" : "ইমেইল লিখুন",
+    "enterYourPhoneNumber" : "ফোন নাম্বার লিখুন",
+    "enterYourAddress" : "আপনার সম্পূর্ন ঠিকানা লিখুন",
+    "enterYourPassword" : "পাসওয়ার্ড লিখুন",
+    "enterValidEmail" : "ইমেইল সঠিন নয়",
+    "enterValidPassword" : "পাসওয়ার্ড কমপক্ষে ৬ অক্ষরের হতে হবে"
+
 
 }

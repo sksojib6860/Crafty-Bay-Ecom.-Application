@@ -1,4 +1,24 @@
 {
     "hello" : "Hello",
-    "changeYourLanguage" : "Change Your Language"
+    "changeYourLanguage" : "Change Your Language",
+    "completeProfile" : "Complete Profile",
+    "getStarted_your_details" : "Get Started with us with your details",
+    "firstName" : "First Name",
+    "lastName" : "Last Name",
+    "email" : "Email",
+    "phoneNumber" : "Phone Number",
+    "address" : "Address",
+    "password" : "Password",
+    "signUp" : "Sign Up",
+    "enterYourFirstName" : "Enter Your First Name",
+    "enterYourLastName" : "Enter Your Last Name",
+    "enterYourEmail" : "Email address can't be empty",
+    "enterYourPhoneNumber" : "Enter Your Phone Number",
+    "enterYourAddress" : "Enter Your Address",
+    "enterYourPassword" : "Enter Your Password",
+    "enterValidEmail" : "Enter a valid email address",
+    "enterValidPassword" : "Password must be at least 6 characters"
+
+
+
 }
