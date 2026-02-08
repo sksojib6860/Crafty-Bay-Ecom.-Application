@@ -3,9 +3,9 @@ import 'package:crafty_bay_app/app/extensions/utils_extension.dart';
 import 'package:crafty_bay_app/features/auth/presentations/widget/utils/app_logo.dart';
 import 'package:crafty_bay_app/features/auth/presentations/widget/utils/validator.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../../../../app/providers/language_providers.dart';
+import 'login_screen.dart';
+import 'otp_screen.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -27,7 +27,6 @@ class _SignupScreenState extends State<SignupScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final languageProvider = context.read<LanguageProviders>();
     final localization = context.l10n;
     return Scaffold(
       body: SingleChildScrollView(
@@ -47,12 +46,14 @@ class _SignupScreenState extends State<SignupScreen> {
                     style: context.textTheme.headlineLarge,
                   ),
                   Text(
+                    textAlign: TextAlign.center,
                     localization.getStarted_your_details,
                     style: context.textTheme.bodySmall,
                   ),
                   TextFormField(
                     controller: _firstnameTEController,
                     decoration: InputDecoration(
+                      hintStyle: context.textTheme.bodyMedium,
                       hintText: localization.firstName,
                     ),
                     validator: (String? value) => Validators.validateText(
@@ -63,6 +64,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   TextFormField(
                     controller: _lastnameTEController,
                     decoration: InputDecoration(
+                      hintStyle: context.textTheme.bodyMedium,
                       hintText: localization.lastName,
                     ),
                     validator: (String? value) => Validators.validateText(
@@ -72,7 +74,10 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                   TextFormField(
                     controller: _emailTEController,
-                    decoration: InputDecoration(hintText: localization.email),
+                    decoration: InputDecoration(
+                      hintStyle: context.textTheme.bodyMedium,
+                      hintText: localization.email,
+                    ),
                     validator: (String? value) =>
                         Validators.validateEmail(context, value),
                   ),
@@ -80,6 +85,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     controller: _phoneTEController,
                     decoration: InputDecoration(
                       hintText: localization.phoneNumber,
+                      hintStyle: context.textTheme.bodyMedium,
                     ),
                     validator: (String? value) => Validators.validateText(
                       value,
@@ -87,8 +93,12 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                   ),
                   TextFormField(
+                    maxLines: 3,
                     controller: _addressTEController,
-                    decoration: InputDecoration(hintText: localization.address),
+                    decoration: InputDecoration(
+                      hintStyle: context.textTheme.bodyMedium,
+                      hintText: localization.address,
+                    ),
                     validator: (String? value) => Validators.validateText(
                       value,
                       localization.enterYourAddress,
@@ -97,6 +107,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   TextFormField(
                     controller: _passwordTEController,
                     decoration: InputDecoration(
+                      hintStyle: context.textTheme.bodyMedium,
                       hintText: localization.password,
                     ),
                     validator: (value) =>
@@ -108,16 +119,11 @@ class _SignupScreenState extends State<SignupScreen> {
                     },
                     child: Text(localization.signUp),
                   ),
-                  DropdownMenu(
-                    dropdownMenuEntries: languageProvider.supportedLocale.map((
-                      e,
-                    ) {
-                      return DropdownMenuEntry(value: e, label: e.languageCode);
-                    }).toList(),
-                    initialSelection: languageProvider.currentLocale,
-                    onSelected: (value) {
-                      languageProvider.changeLocale(value!);
+                  TextButton(
+                    onPressed: () {
+                      _signIn();
                     },
+                    child: Text('Already have an account? Sign In'),
                   ),
                 ],
               ),
@@ -128,7 +134,21 @@ class _SignupScreenState extends State<SignupScreen> {
     );
   }
 
-  void _signupButton() {}
+  void _signupButton() {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        OtpVerificationScreen.name,
+        (route) => false,
+      );
+    }
+  }
+
+  void _signIn() {
+    Navigator.pushNamed(context, LoginScreen.name);
+  }
+
   @override
   void dispose() {
     _firstnameTEController.dispose();

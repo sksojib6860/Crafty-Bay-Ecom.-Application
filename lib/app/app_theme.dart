@@ -27,6 +27,7 @@ class AppTheme {
 
   static TextTheme get _textTheme {
     return TextTheme(
+      bodyMedium: TextStyle(color: Colors.grey),
       headlineLarge: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
       bodySmall: TextStyle(fontWeight: FontWeight.w500, color: Colors.grey),
     );
@@ -34,7 +35,7 @@ class AppTheme {
 
   static InputDecorationTheme get _textFormField {
     return InputDecorationTheme(
-      contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 0),
+      contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
       border: OutlineInputBorder(
         borderSide: BorderSide(color: AppColor.themeColor),
         borderRadius: BorderRadius.circular(8),
