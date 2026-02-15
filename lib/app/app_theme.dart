@@ -10,6 +10,7 @@ class AppTheme {
     textTheme: _textTheme,
     inputDecorationTheme: _textFormField,
     filledButtonTheme: _filledButtonTheme,
+    navigationBarTheme: _navigationBarTheme,
   );
 
   static final ThemeData _darkThemeData = ThemeData(
@@ -20,7 +21,17 @@ class AppTheme {
     textTheme: _textTheme,
     inputDecorationTheme: _textFormField,
     filledButtonTheme: _filledButtonTheme,
+    navigationBarTheme: _navigationBarTheme,
   );
+
+  static NavigationBarThemeData get _navigationBarTheme {
+    return NavigationBarThemeData(
+      indicatorColor: AppColor.themeColor,
+      indicatorShape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+    );
+  }
 
   static ProgressIndicatorThemeData get _circularProgressIndicatorTheme =>
       ProgressIndicatorThemeData(color: AppColor.themeColor);

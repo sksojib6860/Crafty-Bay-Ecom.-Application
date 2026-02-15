@@ -1,4 +1,5 @@
 import 'package:crafty_bay_app/app/providers/theme_provider.dart';
+import 'package:crafty_bay_app/features/shared/presentation/providers/top_nav_bar_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
@@ -17,6 +18,7 @@ class CraftyBayApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider(create: (_) => LanguageProviders()),
+        ChangeNotifierProvider(create: (_) => TopNavBarProvider()),
       ],
       child: Consumer<LanguageProviders>(
         builder: (context, languageProviders, child) {

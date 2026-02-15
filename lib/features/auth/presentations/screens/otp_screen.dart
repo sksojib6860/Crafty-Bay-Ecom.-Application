@@ -88,6 +88,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
   void _verifyOtpButton() {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
+      Navigator.pushNamed(context, LoginScreen.name);
     }
   }
 
