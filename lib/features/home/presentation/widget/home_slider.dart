@@ -11,6 +11,7 @@ class HomeSlider extends StatefulWidget {
 
 class _HomeSliderState extends State<HomeSlider> {
   final ValueNotifier _currentIndex = ValueNotifier<int>(0);
+  final List _list = [1, 2, 3, 4, 5];
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +22,11 @@ class _HomeSliderState extends State<HomeSlider> {
             onPageChanged: (index, reason) {
               _currentIndex.value = index;
             },
-            height: 200,
+            height: 180,
             autoPlay: false,
             viewportFraction: 1,
           ),
-          items: [1, 2, 3, 4, 5].map((i) {
+          items: _list.map((i) {
             return Builder(
               builder: (BuildContext context) {
                 return Container(
@@ -33,7 +34,7 @@ class _HomeSliderState extends State<HomeSlider> {
                   margin: EdgeInsets.symmetric(horizontal: 5.0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(9),
-                    color: Colors.amber,
+                    color: AppColor.themeColor.withAlpha(30),
                   ),
                   alignment: Alignment.center,
                   child: Text('text $i', style: TextStyle(fontSize: 16.0)),
@@ -53,7 +54,8 @@ class _HomeSliderState extends State<HomeSlider> {
                   Container(
                     margin: EdgeInsets.only(right: 4),
                     decoration: BoxDecoration(
-                      color: value == i ? AppColor.themeColor : Colors.grey,
+                      color: value == i ? AppColor.themeColor : Colors.white,
+                      border: Border.all(color: AppColor.themeColor),
                       shape: BoxShape.circle,
                     ),
                     height: 10,

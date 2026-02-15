@@ -1,10 +1,12 @@
-import 'package:crafty_bay_app/features/auth/presentations/widget/utils/asset_paths.dart';
-import 'package:crafty_bay_app/features/home/presentation/widget/home_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../auth/presentations/widget/utils/asset_paths.dart';
 import '../widget/app_bar_icon_button.dart';
+import '../widget/home_category_list.dart';
+import '../widget/home_slider.dart';
 import '../widget/products_search_bar.dart';
+import '../widget/section_headers.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -26,6 +28,12 @@ class _HomePageState extends State<HomePage> {
             ProductSearchBar(),
             const SizedBox(height: 16),
             HomeSlider(),
+            //const SizedBox(height: 16),
+            SectionHeader(title: 'Categories', onTapSeeAll: () {}),
+            const SizedBox(height: 4),
+            HomeCategoryList(),
+            SectionHeader(title: 'Popular', onTapSeeAll: () {}),
+            const SizedBox(height: 4),
           ],
         ),
       ),
