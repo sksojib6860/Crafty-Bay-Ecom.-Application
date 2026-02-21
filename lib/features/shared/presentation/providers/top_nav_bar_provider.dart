@@ -4,8 +4,18 @@ class TopNavBarProvider extends ChangeNotifier {
   int _selectedIndex = 0;
 
   int get selectedIndex => _selectedIndex;
-  set changeIndex(int index) {
+  void setSelectedIndex(int index) {
     _selectedIndex = index;
+    notifyListeners();
+  }
+
+  void changeCategoryIndex() {
+    _selectedIndex = 1;
+    notifyListeners();
+  }
+
+  void backToHomePage() {
+    _selectedIndex = 0;
     notifyListeners();
   }
 }

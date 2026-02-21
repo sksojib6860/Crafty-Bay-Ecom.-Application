@@ -1,7 +1,9 @@
-import 'package:crafty_bay_app/features/home/presentation/screen/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../category/presentation/screen/categories_list_iteam.dart';
+import '../../../home/presentation/screen/home_page.dart';
+import '../../../wishlist/presentations/screen/wish_list_screen.dart';
 import '../providers/top_nav_bar_provider.dart';
 
 class TopNavBarController extends StatefulWidget {
@@ -14,12 +16,11 @@ class TopNavBarController extends StatefulWidget {
 }
 
 class _TopNavBarControllerState extends State<TopNavBarController> {
-  int _selectedIndex = 0;
   final List<Widget> _pages = [
     HomePage(),
-    Center(child: Text('Categories')),
+    CategoriesListIteam(),
     Center(child: Text('Cart')),
-    Center(child: Text('Wish')),
+    WishListScreen(categoryName: 'Wish List'),
   ];
 
   //TODO: use provider , just create provider ,
@@ -33,10 +34,10 @@ class _TopNavBarControllerState extends State<TopNavBarController> {
             indicatorShape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),
-            selectedIndex: _selectedIndex,
+            selectedIndex: topNavBarProvider.selectedIndex,
             onDestinationSelected: (int index) {
               setState(() {
-                _selectedIndex = index;
+                topNavBarProvider.setSelectedIndex(index);
               });
             },
             labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,

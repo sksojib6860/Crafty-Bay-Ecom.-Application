@@ -5,6 +5,7 @@ import '../../../auth/presentations/widget/utils/asset_paths.dart';
 import '../widget/app_bar_icon_button.dart';
 import '../widget/home_category_list.dart';
 import '../widget/home_slider.dart';
+import '../widget/horizontal_products_list.dart';
 import '../widget/products_search_bar.dart';
 import '../widget/section_headers.dart';
 
@@ -20,21 +21,25 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          children: [
-            const SizedBox(height: 16),
-            ProductSearchBar(),
-            const SizedBox(height: 16),
-            HomeSlider(),
-            //const SizedBox(height: 16),
-            SectionHeader(title: 'Categories', onTapSeeAll: () {}),
-            const SizedBox(height: 4),
-            HomeCategoryList(),
-            SectionHeader(title: 'Popular', onTapSeeAll: () {}),
-            const SizedBox(height: 4),
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            children: [
+              const SizedBox(height: 16),
+              ProductSearchBar(),
+              const SizedBox(height: 16),
+              HomeSlider(),
+              SectionHeader(title: 'All Categories', onTapSeeAll: () {}),
+              HomeCategoryList(),
+              SectionHeader(title: 'Popular', onTapSeeAll: () {}),
+              HorizontalProductList(),
+              SectionHeader(title: 'Special', onTapSeeAll: () {}),
+              HorizontalProductList(),
+              SectionHeader(title: 'New', onTapSeeAll: () {}),
+              HorizontalProductList(),
+            ],
+          ),
         ),
       ),
     );

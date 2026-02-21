@@ -12,12 +12,15 @@ class SectionHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(title, style: context.textTheme.bodyLarge),
-        TextButton(onPressed: onTapSeeAll, child: Text('See All')),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(title, style: context.textTheme.titleLarge),
+          TextButton(onPressed: onTapSeeAll, child: Text('See All')),
+        ],
+      ),
     );
   }
 }
