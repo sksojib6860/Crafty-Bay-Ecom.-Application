@@ -1,9 +1,11 @@
-import 'package:crafty_bay_app/app/extensions/utils_extension.dart';
+import 'package:crafty_bay_app/features/shared/presentation/widget/rating_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../app/app_color.dart';
 import '../../../../app/constants.dart';
 import '../../../auth/presentations/widget/utils/asset_paths.dart';
+import '../../../product/presentations/screen/products_details_screen.dart';
+import 'favorite_button_widget.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({super.key});
@@ -13,7 +15,9 @@ class ProductCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.pushNamed(context, ProductsDetailsScreen.name);
+        },
         child: Card(
           color: Colors.white,
           shadowColor: AppColor.themeColor.withAlpha(50),
@@ -53,31 +57,8 @@ class ProductCard extends StatelessWidget {
                             '${Constants.takaSign}120',
                             style: TextStyle(color: AppColor.themeColor),
                           ),
-                          Wrap(
-                            crossAxisAlignment: WrapCrossAlignment.center,
-                            children: [
-                              Icon(Icons.star, size: 24, color: Colors.amber),
-                              Text(
-                                '4.5',
-                                style: context.textTheme.titleSmall?.copyWith(
-                                  fontSize: 13,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Container(
-                            padding: EdgeInsets.all(2),
-                            decoration: BoxDecoration(
-                              color: AppColor.themeColor,
-                              borderRadius: BorderRadius.circular(4),
-                            ),
-                            child: Icon(
-                              Icons.favorite_border,
-                              color: Colors.white,
-                              size: 16,
-                            ),
-                          ),
+                          RatingWidget(rating: '4.6'),
+                          FavoriteButton(onTap: () {}),
                         ],
                       ),
                     ],

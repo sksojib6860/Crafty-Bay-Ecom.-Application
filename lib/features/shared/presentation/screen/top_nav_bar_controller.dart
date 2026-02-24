@@ -19,7 +19,7 @@ class _TopNavBarControllerState extends State<TopNavBarController> {
   final List<Widget> _pages = [
     HomePage(),
     CategoriesListIteam(),
-    Center(child: Text('Cart')),
+    SizedBox(),
     WishListScreen(categoryName: 'Wish List'),
   ];
 
