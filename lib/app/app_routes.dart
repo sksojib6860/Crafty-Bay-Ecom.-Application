@@ -4,6 +4,7 @@ import '../features/auth/presentations/screens/login_screen.dart';
 import '../features/auth/presentations/screens/otp_screen.dart';
 import '../features/auth/presentations/screens/signup_screen.dart';
 import '../features/auth/presentations/screens/splash_screen.dart';
+import '../features/product/presentations/screen/create_review_screen.dart';
 import '../features/product/presentations/screen/product_list_screen.dart';
 import '../features/product/presentations/screen/products_details_screen.dart';
 import '../features/product/presentations/screen/reviews_screen.dart';
@@ -37,6 +38,9 @@ class AppRoutes {
         break;
       case ReviewsScreen.name:
         widget = ReviewsScreen();
+        break;
+      case CreateReviewScreen.name:
+        widget = CreateReviewScreen();
         break;
     }
     return MaterialPageRoute(builder: (context) => widget);

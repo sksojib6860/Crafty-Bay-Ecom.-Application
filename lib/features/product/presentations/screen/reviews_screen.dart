@@ -1,6 +1,9 @@
+import 'package:crafty_bay_app/app/app_color.dart';
 import 'package:flutter/material.dart';
 
+import '../widget/review_botton_bar.dart';
 import '../widget/review_card.dart';
+import 'create_review_screen.dart';
 
 class ReviewsScreen extends StatefulWidget {
   const ReviewsScreen({super.key});
@@ -25,7 +28,18 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
               },
             ),
           ),
+          ReviewBottomBar(toTapCart: () {}),
+          SizedBox(height: 50),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        shape: CircleBorder(),
+        backgroundColor: AppColor.themeColor,
+        foregroundColor: Colors.white,
+        onPressed: () {
+          Navigator.pushNamed(context, CreateReviewScreen.name);
+        },
+        child: Icon(Icons.add),
       ),
     );
   }

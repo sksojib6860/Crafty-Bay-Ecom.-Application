@@ -1,9 +1,9 @@
 import 'package:crafty_bay_app/app/extensions/language_extension.dart';
 import 'package:crafty_bay_app/app/extensions/utils_extension.dart';
-import 'package:crafty_bay_app/features/auth/presentations/widget/utils/app_logo.dart';
-import 'package:crafty_bay_app/features/auth/presentations/widget/utils/validator.dart';
 import 'package:flutter/material.dart';
 
+import '../widget/utils/app_logo.dart';
+import '../widget/utils/validator.dart';
 import 'login_screen.dart';
 import 'otp_screen.dart';
 
