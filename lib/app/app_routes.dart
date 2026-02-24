@@ -6,6 +6,7 @@ import '../features/auth/presentations/screens/signup_screen.dart';
 import '../features/auth/presentations/screens/splash_screen.dart';
 import '../features/product/presentations/screen/product_list_screen.dart';
 import '../features/product/presentations/screen/products_details_screen.dart';
+import '../features/product/presentations/screen/reviews_screen.dart';
 import '../features/shared/presentation/screen/top_nav_bar_controller.dart';
 
 class AppRoutes {
@@ -33,6 +34,9 @@ class AppRoutes {
         break;
       case ProductsDetailsScreen.name:
         widget = ProductsDetailsScreen();
+        break;
+      case ReviewsScreen.name:
+        widget = ReviewsScreen();
         break;
     }
     return MaterialPageRoute(builder: (context) => widget);

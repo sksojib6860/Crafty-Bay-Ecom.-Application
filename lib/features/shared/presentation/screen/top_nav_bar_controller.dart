@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../cart/presentations/screen/cart_screen.dart';
 import '../../../category/presentation/screen/categories_list_iteam.dart';
 import '../../../home/presentation/screen/home_page.dart';
 import '../../../wishlist/presentations/screen/wish_list_screen.dart';
@@ -19,7 +20,7 @@ class _TopNavBarControllerState extends State<TopNavBarController> {
   final List<Widget> _pages = [
     HomePage(),
     CategoriesListIteam(),
-    SizedBox(),
+    CartScreen(categoryName: 'Cart'),
     WishListScreen(categoryName: 'Wish List'),
   ];
 

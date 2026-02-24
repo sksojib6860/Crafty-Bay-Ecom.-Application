@@ -20,7 +20,7 @@ class PriceAndCartSection extends StatelessWidget {
       padding: EdgeInsets.all(16),
       height: 80,
       decoration: BoxDecoration(
-        color: AppColor.themeColor.withAlpha(30),
+        color: AppColor.themeColor.withAlpha(20),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(30),
           topRight: Radius.circular(30),
@@ -37,6 +37,7 @@ class PriceAndCartSection extends StatelessWidget {
                 '${Constants.takaSign} $price',
                 style: context.textTheme.bodyMedium?.copyWith(
                   color: AppColor.themeColor,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ],

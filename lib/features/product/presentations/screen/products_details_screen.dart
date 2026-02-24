@@ -1,4 +1,5 @@
 import 'package:crafty_bay_app/app/extensions/utils_extension.dart';
+import 'package:crafty_bay_app/features/product/presentations/screen/reviews_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../shared/presentation/widget/decrement_increment_button.dart';
@@ -79,7 +80,12 @@ class _ProductsDetailsScreenState extends State<ProductsDetailsScreen> {
               Row(
                 children: [
                   RatingWidget(rating: '4.0', spacing: 5),
-                  TextButton(onPressed: () {}, child: Text('Review')),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, ReviewsScreen.name);
+                    },
+                    child: Text('Review'),
+                  ),
                   FavoriteButton(onTap: () {}, iconSize: 20),
                 ],
               ),

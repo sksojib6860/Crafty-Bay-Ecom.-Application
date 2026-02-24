@@ -53,7 +53,7 @@ class _DecrementIncrementButtonState extends State<DecrementIncrementButton> {
           borderRadius: BorderRadius.circular(7),
           color: AppColor.themeColor,
         ),
-        child: Icon(icon, size: 18, color: Colors.white),
+        child: Icon(icon, size: 14, color: Colors.white),
       ),
     );
   }
