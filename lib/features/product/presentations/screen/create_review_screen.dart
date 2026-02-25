@@ -24,7 +24,7 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.all(30),
+            padding: const EdgeInsets.all(40),
             child: Form(
               key: _formKey,
               autovalidateMode: AutovalidateMode.onUserInteraction,

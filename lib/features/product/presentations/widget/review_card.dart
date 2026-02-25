@@ -1,3 +1,4 @@
+import 'package:crafty_bay_app/app/extensions/utils_extension.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../app/app_color.dart';
@@ -30,7 +31,7 @@ class _ReviewCardIteamState extends State<ReviewCardIteam> {
                   backgroundColor: Colors.grey.withAlpha(40),
                   child: Icon(Icons.account_circle, color: Colors.grey),
                 ),
-                Text('User Name'),
+                Text('John Doe', style: context.textTheme.bodyLarge),
               ],
             ),
             Text(

@@ -26,7 +26,7 @@ class ReviewBottomBar extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Reviews (100)', style: context.textTheme.bodyLarge),
+              Text('Reviews (1,000)', style: context.textTheme.bodyLarge),
             ],
           ),
         ],
