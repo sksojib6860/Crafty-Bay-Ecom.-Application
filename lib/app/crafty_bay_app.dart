@@ -11,6 +11,8 @@ import 'providers/language_providers.dart';
 
 class CraftyBayApp extends StatelessWidget {
   const CraftyBayApp({super.key});
+  static final GlobalKey<NavigatorState> navigatorKey =
+      GlobalKey<NavigatorState>();
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class CraftyBayApp extends StatelessWidget {
         builder: (context, languageProviders, child) {
           final themeMode = context.watch<ThemeProvider>().themeMode;
           return MaterialApp(
+            navigatorKey: navigatorKey,
             localizationsDelegates: [
               AppLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,
