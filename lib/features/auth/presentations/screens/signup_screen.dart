@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import '../widget/utils/app_logo.dart';
 import '../widget/utils/validator.dart';
 import 'login_screen.dart';
-import 'otp_screen.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -136,12 +135,11 @@ class _SignupScreenState extends State<SignupScreen> {
 
   void _signupButton() {
     if (_formKey.currentState!.validate()) {
-      _formKey.currentState!.save();
-      Navigator.pushNamedAndRemoveUntil(
-        context,
-        OtpVerificationScreen.name,
-        (route) => false,
-      );
+      // Navigator.pushNamedAndRemoveUntil(
+      //   context,
+      //   OtpVerificationScreen.name,
+      //   (route) => false,
+      // );
     }
   }
 

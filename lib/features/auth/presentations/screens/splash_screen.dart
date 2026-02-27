@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../shared/presentation/screen/top_nav_bar_controller.dart';
 import '../widget/utils/app_logo.dart';
+import 'signup_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(Duration(seconds: 4));
     Navigator.pushNamedAndRemoveUntil(
       context,
-      TopNavBarController.name,
+      SignupScreen.name,
       (route) => false,
     );
   }
