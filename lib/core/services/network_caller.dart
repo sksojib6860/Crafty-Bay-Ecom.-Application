@@ -25,7 +25,7 @@ class NetworkCaller {
       Response response = await get(uri, headers: headers);
       logResponse(url, response);
       final decodedData = jsonDecode(response.body);
-      if (response.statusCode == 200) {
+      if (response.statusCode == 200 || response.statusCode == 201) {
         return NetworkResponse(
           isSuccess: true,
           responseCode: response.statusCode,

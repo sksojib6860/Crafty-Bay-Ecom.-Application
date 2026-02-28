@@ -1,10 +1,15 @@
 import 'package:crafty_bay_app/app/extensions/language_extension.dart';
 import 'package:crafty_bay_app/app/extensions/utils_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../shared/presentation/widget/snackbar_message.dart';
+import '../../data/models/signup_parems.dart';
+import '../providers/signup_provider.dart';
 import '../widget/utils/app_logo.dart';
 import '../widget/utils/validator.dart';
 import 'login_screen.dart';
+import 'otp_screen.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -23,108 +28,119 @@ class _SignupScreenState extends State<SignupScreen> {
   final TextEditingController _addressTEController = TextEditingController();
   final TextEditingController _passwordTEController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final SignUpProvider _signUpProvider = SignUpProvider();
 
   @override
   Widget build(BuildContext context) {
     final localization = context.l10n;
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(30),
-            child: Form(
-              key: _formKey,
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-              child: Column(
-                spacing: 10,
-                children: [
-                  const SizedBox(height: 10),
-                  AppLogo(),
-                  Text(
-                    localization.completeProfile,
-                    style: context.textTheme.headlineLarge,
-                  ),
-                  Text(
-                    textAlign: TextAlign.center,
-                    localization.getStarted_your_details,
-                    style: context.textTheme.bodySmall,
-                  ),
-                  TextFormField(
-                    controller: _firstnameTEController,
-                    decoration: InputDecoration(
-                      hintStyle: context.textTheme.bodyMedium,
-                      hintText: localization.firstName,
+    return ChangeNotifierProvider.value(
+      value: _signUpProvider,
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(30),
+              child: Form(
+                key: _formKey,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                child: Column(
+                  spacing: 10,
+                  children: [
+                    const SizedBox(height: 10),
+                    AppLogo(),
+                    Text(
+                      localization.completeProfile,
+                      style: context.textTheme.headlineLarge,
                     ),
-                    validator: (String? value) => Validators.validateText(
-                      value,
-                      localization.enterYourFirstName,
+                    Text(
+                      textAlign: TextAlign.center,
+                      localization.getStarted_your_details,
+                      style: context.textTheme.bodySmall,
                     ),
-                  ),
-                  TextFormField(
-                    controller: _lastnameTEController,
-                    decoration: InputDecoration(
-                      hintStyle: context.textTheme.bodyMedium,
-                      hintText: localization.lastName,
+                    TextFormField(
+                      controller: _firstnameTEController,
+                      decoration: InputDecoration(
+                        hintStyle: context.textTheme.bodyMedium,
+                        hintText: localization.firstName,
+                      ),
+                      validator: (String? value) => Validators.validateText(
+                        value,
+                        localization.enterYourFirstName,
+                      ),
                     ),
-                    validator: (String? value) => Validators.validateText(
-                      value,
-                      localization.enterYourLastName,
+                    TextFormField(
+                      controller: _lastnameTEController,
+                      decoration: InputDecoration(
+                        hintStyle: context.textTheme.bodyMedium,
+                        hintText: localization.lastName,
+                      ),
+                      validator: (String? value) => Validators.validateText(
+                        value,
+                        localization.enterYourLastName,
+                      ),
                     ),
-                  ),
-                  TextFormField(
-                    controller: _emailTEController,
-                    decoration: InputDecoration(
-                      hintStyle: context.textTheme.bodyMedium,
-                      hintText: localization.email,
+                    TextFormField(
+                      controller: _emailTEController,
+                      decoration: InputDecoration(
+                        hintStyle: context.textTheme.bodyMedium,
+                        hintText: localization.email,
+                      ),
+                      validator: (String? value) =>
+                          Validators.validateEmail(context, value),
                     ),
-                    validator: (String? value) =>
-                        Validators.validateEmail(context, value),
-                  ),
-                  TextFormField(
-                    controller: _phoneTEController,
-                    decoration: InputDecoration(
-                      hintText: localization.phoneNumber,
-                      hintStyle: context.textTheme.bodyMedium,
+                    TextFormField(
+                      controller: _phoneTEController,
+                      decoration: InputDecoration(
+                        hintText: localization.phoneNumber,
+                        hintStyle: context.textTheme.bodyMedium,
+                      ),
+                      validator: (String? value) => Validators.validateText(
+                        value,
+                        localization.enterYourPhoneNumber,
+                      ),
                     ),
-                    validator: (String? value) => Validators.validateText(
-                      value,
-                      localization.enterYourPhoneNumber,
+                    TextFormField(
+                      maxLines: 3,
+                      controller: _addressTEController,
+                      decoration: InputDecoration(
+                        hintStyle: context.textTheme.bodyMedium,
+                        hintText: localization.address,
+                      ),
+                      validator: (String? value) => Validators.validateText(
+                        value,
+                        localization.enterYourAddress,
+                      ),
                     ),
-                  ),
-                  TextFormField(
-                    maxLines: 3,
-                    controller: _addressTEController,
-                    decoration: InputDecoration(
-                      hintStyle: context.textTheme.bodyMedium,
-                      hintText: localization.address,
+                    TextFormField(
+                      controller: _passwordTEController,
+                      decoration: InputDecoration(
+                        hintStyle: context.textTheme.bodyMedium,
+                        hintText: localization.password,
+                      ),
+                      validator: (value) =>
+                          Validators.validatePassword(context, value),
                     ),
-                    validator: (String? value) => Validators.validateText(
-                      value,
-                      localization.enterYourAddress,
+                    Consumer<SignUpProvider>(
+                      builder: (context, signUpProvider, child) {
+                        if (signUpProvider.signUpInProgress) {
+                          return CircularProgressIndicator();
+                        }
+                        return FilledButton(
+                          onPressed: () {
+                            _signupButton();
+                          },
+                          child: Text(localization.signUp),
+                        );
+                      },
                     ),
-                  ),
-                  TextFormField(
-                    controller: _passwordTEController,
-                    decoration: InputDecoration(
-                      hintStyle: context.textTheme.bodyMedium,
-                      hintText: localization.password,
+                    TextButton(
+                      onPressed: () {
+                        _signIn();
+                      },
+                      child: Text('Already have an account? Sign In'),
                     ),
-                    validator: (value) =>
-                        Validators.validatePassword(context, value),
-                  ),
-                  FilledButton(
-                    onPressed: () {
-                      _signupButton();
-                    },
-                    child: Text(localization.signUp),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      _signIn();
-                    },
-                    child: Text('Already have an account? Sign In'),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
@@ -135,11 +151,29 @@ class _SignupScreenState extends State<SignupScreen> {
 
   void _signupButton() {
     if (_formKey.currentState!.validate()) {
-      // Navigator.pushNamedAndRemoveUntil(
-      //   context,
-      //   OtpVerificationScreen.name,
-      //   (route) => false,
-      // );
+      signUp();
+    }
+  }
+
+  Future<void> signUp() async {
+    SignUpParms parms = SignUpParms(
+      fistName: _firstnameTEController.text.trim(),
+      lastName: _lastnameTEController.text.trim(),
+      email: _emailTEController.text.trim(),
+      mobileNumber: _phoneTEController.text.trim(),
+      city: _addressTEController.text.trim(),
+      password: _passwordTEController.text,
+    );
+
+    final bool isSuccess = await _signUpProvider.signUp(parms);
+    if (isSuccess) {
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        OtpVerificationScreen.name,
+        (route) => false,
+      );
+    } else {
+      showSnackBarMassage(context, _signUpProvider.errorMessage!);
     }
   }
 
