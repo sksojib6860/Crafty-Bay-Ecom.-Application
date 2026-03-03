@@ -75,11 +75,11 @@ class NetworkCaller {
           body: decodedData,
         );
       } else if (response.statusCode == 401) {
-        onUserUnAuthorized();
+        // onUserUnAuthorized();
         return NetworkResponse(
           isSuccess: false,
           responseCode: response.statusCode,
-          errorMessage: 'Unauthorized',
+          errorMessage: _extractError(decodedData),
         );
       } else {
         return NetworkResponse(
