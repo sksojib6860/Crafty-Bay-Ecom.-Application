@@ -170,6 +170,7 @@ class _SignupScreenState extends State<SignupScreen> {
       Navigator.pushNamedAndRemoveUntil(
         context,
         OtpVerificationScreen.name,
+        arguments: _emailTEController.text.trim(),
         (route) => false,
       );
     } else {

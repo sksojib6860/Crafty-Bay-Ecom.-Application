@@ -1,17 +1,23 @@
+import 'package:crafty_bay_app/features/auth/data/models/resend_otp_parms.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../app/app_color.dart';
+import '../../../../shared/presentation/widget/snackbar_message.dart';
+import '../../providers/resent_otp_provider.dart';
 import '../../providers/time_providers.dart';
 
 class ResendOtpSection extends StatefulWidget {
-  const ResendOtpSection({super.key});
+  const ResendOtpSection({super.key, required this.email});
+  final String? email;
+
   @override
   State<ResendOtpSection> createState() => _ResendOtpSectionState();
 }
 
 class _ResendOtpSectionState extends State<ResendOtpSection> {
   final TimerProvider _timerProvider = TimerProvider();
+  final ResendOtpProvider _resendOtpProvider = ResendOtpProvider();
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +34,7 @@ class _ResendOtpSectionState extends State<ResendOtpSection> {
               TextButton(
                 onPressed: () {
                   timerProvider.startTimer(60);
+                  resendOTP();
                 },
                 child: Text(
                   'Resend',
@@ -43,5 +50,16 @@ class _ResendOtpSectionState extends State<ResendOtpSection> {
         },
       ),
     );
+  }
+
+  Future<void> resendOTP() async {
+    ResendOtpParms parms = ResendOtpParms(email: widget.email!);
+
+    final bool isSuccess = await _resendOtpProvider.resentOtp(parms);
+    if (isSuccess) {
+      showSnackBarMassage(context, _resendOtpProvider.successMessage!);
+    } else {
+      showSnackBarMassage(context, _resendOtpProvider.errorMessage!);
+    }
   }
 }

@@ -68,7 +68,7 @@ class NetworkCaller {
       );
       logResponse(url, response);
       final decodedData = jsonDecode(response.body);
-      if (response.statusCode == 200) {
+      if (response.statusCode == 200 || response.statusCode == 201) {
         return NetworkResponse(
           isSuccess: true,
           responseCode: response.statusCode,
@@ -85,7 +85,7 @@ class NetworkCaller {
         return NetworkResponse(
           isSuccess: false,
           responseCode: response.statusCode,
-          errorMessage: decodedData[deData],
+          errorMessage: _extractError(decodedData),
         );
       }
     } catch (e) {
@@ -99,16 +99,26 @@ class NetworkCaller {
 
   void logRequest(String url, {Map<String, dynamic>? body}) {
     _logger.i(
-      "url: $url\n"
-      "body: $body",
+      "URL: $url\n"
+      "Body: $body",
     );
   }
 
   void logResponse(String url, Response response) {
     _logger.i(
-      "response: $response\n"
+      "URL: $url\n"
       "body response: ${response.body}\n"
       "status code: ${response.statusCode}",
     );
+  }
+
+  /// Extracts error message from decoded JSON using provided keys
+  String _extractError(Map<String, dynamic> decodedData) {
+    for (var key in deData) {
+      if (decodedData.containsKey(key)) {
+        return decodedData[key]?.toString() ?? 'Unknown error';
+      }
+    }
+    return decodedData['msg']?.toString() ?? 'Unknown error';
   }
 }

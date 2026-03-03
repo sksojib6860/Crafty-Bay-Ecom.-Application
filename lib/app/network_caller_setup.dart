@@ -1,7 +1,8 @@
-import 'package:crafty_bay_app/app/crafty_bay_app.dart';
-import 'package:crafty_bay_app/core/services/network_caller.dart';
-import 'package:crafty_bay_app/features/auth/presentations/screens/signup_screen.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+import '../core/services/network_caller.dart';
+import '../features/auth/presentations/screens/signup_screen.dart';
+import 'crafty_bay_app.dart';
 
 NetworkCaller getNetworkCaller() {
   return NetworkCaller(
@@ -9,7 +10,7 @@ NetworkCaller getNetworkCaller() {
     onUserUnAuthorized: () {
       moveToSignInScreen();
     },
-    deData: ['data'],
+    deData: ["msg"],
   );
 }
 

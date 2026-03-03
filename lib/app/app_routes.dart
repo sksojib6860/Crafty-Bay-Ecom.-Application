@@ -21,7 +21,8 @@ class AppRoutes {
         widget = const SignupScreen();
         break;
       case OtpVerificationScreen.name:
-        widget = const OtpVerificationScreen();
+        final String email = settings.arguments as String;
+        widget = OtpVerificationScreen(email: email);
         break;
       case LoginScreen.name:
         widget = const LoginScreen();
