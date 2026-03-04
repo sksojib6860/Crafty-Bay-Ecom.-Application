@@ -137,7 +137,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       onPressed: () {
                         _signIn();
                       },
-                      child: Text('Already have an account? Sign In'),
+                      child: Text(localization.alreadyHaveAccount),
                     ),
                   ],
                 ),

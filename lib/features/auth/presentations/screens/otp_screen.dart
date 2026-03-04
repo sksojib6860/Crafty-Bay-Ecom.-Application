@@ -1,3 +1,4 @@
+import 'package:crafty_bay_app/app/extensions/language_extension.dart';
 import 'package:crafty_bay_app/app/extensions/utils_extension.dart';
 import 'package:crafty_bay_app/features/shared/presentation/screen/top_nav_bar_controller.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +30,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // final localization = context.l10n;
+    final localization = context.l10n;
     return ChangeNotifierProvider.value(
       value: _verifyOtpProvider,
       child: Scaffold(
@@ -46,11 +47,11 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                     const SizedBox(height: 10),
                     AppLogo(),
                     Text(
-                      "Enter OTP Code",
+                      localization.enterOtpCode,
                       style: context.textTheme.headlineLarge,
                     ),
                     Text(
-                      "A 4 digit otp code has been sent",
+                      localization.a4digitOtpCodeHasBeenSent,
                       textAlign: TextAlign.center,
                       style: context.textTheme.bodySmall,
                     ),
@@ -80,7 +81,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                           onPressed: () {
                             _verifyOtpButton();
                           },
-                          child: Text('Verify OTP'),
+                          child: Text(localization.verifyOtp),
                         );
                       },
                     ),
@@ -90,7 +91,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                       onPressed: () {
                         _signIn();
                       },
-                      child: Text('Already have an account? Sign In'),
+                      child: Text(localization.alreadyHaveAccount),
                     ),
                   ],
                 ),

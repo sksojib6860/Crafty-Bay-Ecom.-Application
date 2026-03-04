@@ -17,7 +17,18 @@
     "enterYourAddress" : "আপনার সম্পূর্ন ঠিকানা লিখুন",
     "enterYourPassword" : "পাসওয়ার্ড লিখুন",
     "enterValidEmail" : "ইমেইল সঠিন নয়",
-    "enterValidPassword" : "পাসওয়ার্ড কমপক্ষে ৬ অক্ষরের হতে হবে"
-
+    "enterValidPassword" : "পাসওয়ার্ড কমপক্ষে ৬ অক্ষরের হতে হবে",
+    "alreadyHaveAccount" : "আপনার অ্যাকাউন্ট আছে? লগ ইন করুন",
+    "doNtHaveAccount" : "অ্যাকাউন্ট নেই? সাইন আপ করুন",
+    "welcomeBack": "স্বাগতম",
+    "pleaseEnterYourUserNameAndPassword" : "আপনার ইমেইল এবং সঠিক পাসওয়াড লিখুন",
+    "emailAddress": "ইমেইল ঠিকানা",
+    "logIn": "প্রবেশ করুন",
+    "enterOtpCode": "ওটিপি কোড লিখুন",
+    "a4digitOtpCodeHasBeenSent": "৪ সংখ্যার ওটিপি কোড পাঠানো হয়েছে",
+    "verifyOtp": "ওটিপি যাচাই",
+    "resendOtp": "পুনরায় পাঠান",
+    "thisCodeWillBeSend": "নতুন ওটিপি পাঠানো হয়েছে",
+    "s": "সেকেন্ড"
 
 }

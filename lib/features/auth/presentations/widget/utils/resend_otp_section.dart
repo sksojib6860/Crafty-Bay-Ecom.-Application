@@ -1,3 +1,4 @@
+import 'package:crafty_bay_app/app/extensions/language_extension.dart';
 import 'package:crafty_bay_app/features/auth/data/models/resend_otp_parms.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -21,6 +22,7 @@ class _ResendOtpSectionState extends State<ResendOtpSection> {
 
   @override
   Widget build(BuildContext context) {
+    final localization = context.l10n;
     return ChangeNotifierProvider.value(
       value: _timerProvider,
       child: Consumer<TimerProvider>(
@@ -29,7 +31,9 @@ class _ResendOtpSectionState extends State<ResendOtpSection> {
             children: [
               if (timerProvider.isRunning)
                 Text(
-                  'This code will be send ${timerProvider.remainingSeconds}s',
+                  localization.thisCodeWillBeSend +
+                      timerProvider.remainingSeconds.toString() +
+                      localization.s,
                 ),
               TextButton(
                 onPressed: () {
@@ -37,7 +41,7 @@ class _ResendOtpSectionState extends State<ResendOtpSection> {
                   resendOTP();
                 },
                 child: Text(
-                  'Resend',
+                  localization.resendOtp,
                   style: TextStyle(
                     color: timerProvider.isRunning
                         ? Colors.grey

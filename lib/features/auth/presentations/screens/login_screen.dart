@@ -45,11 +45,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(height: 40),
                     AppLogo(),
                     Text(
-                      'Welcome Back',
+                      localization.welcomeBack,
                       style: context.textTheme.headlineLarge,
                     ),
                     Text(
-                      'Please enter your user name and password',
+                      localization.pleaseEnterYourUserNameAndPassword,
                       textAlign: TextAlign.center,
                       style: context.textTheme.bodySmall,
                     ),
@@ -57,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       controller: _emailTEController,
                       decoration: InputDecoration(
                         hintStyle: context.textTheme.bodyMedium,
-                        hintText: 'Email Address',
+                        hintText: localization.emailAddress,
                       ),
                       validator: (String? value) => Validators.validateText(
                         value,
@@ -69,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       controller: _passwordTEController,
                       decoration: InputDecoration(
                         hintStyle: context.textTheme.bodyMedium,
-                        hintText: 'Password',
+                        hintText: localization.password,
                       ),
                       validator: (String? value) => Validators.validateText(
                         value,
@@ -86,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () {
                             _loginButton();
                           },
-                          child: Text('Log In'),
+                          child: Text(localization.logIn),
                         );
                       },
                     ),
@@ -95,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       onPressed: () {
                         _signUpScreen();
                       },
-                      child: Text('Don\'t have an account? Sign Up'),
+                      child: Text(localization.doNtHaveAccount),
                     ),
                   ],
                 ),

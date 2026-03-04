@@ -17,7 +17,21 @@
     "enterYourAddress" : "Enter Your Address",
     "enterYourPassword" : "Enter Your Password",
     "enterValidEmail" : "Enter a valid email address",
-    "enterValidPassword" : "Password must be at least 6 characters"
+    "enterValidPassword" : "Password must be at least 6 characters",
+    "alreadyHaveAccount" : "Already have an account? Sign In",
+    "doNtHaveAccount" : "Don't have an account? Sign Up",
+    "welcomeBack": "Welcome Back",
+    "pleaseEnterYourUserNameAndPassword": "Please enter your user name and password",
+    "emailAddress": "Email Address",
+    "logIn": "Log In",
+    "enterOtpCode": "Enter OTP Code",
+    "a4digitOtpCodeHasBeenSent": "A 4 digit OTP code has been sent",
+    "verifyOtp": "Verify OTP",
+    "resendOtp": "Resend",
+    "thisCodeWillBeSend": "This code will be sent ",
+    "s" : "s"
+
+
 
 
 
