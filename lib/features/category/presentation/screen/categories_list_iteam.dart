@@ -1,3 +1,4 @@
+import 'package:crafty_bay_app/app/extensions/language_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,6 +15,7 @@ class CategoriesListIteam extends StatefulWidget {
 class _CategoriesListIteamState extends State<CategoriesListIteam> {
   @override
   Widget build(BuildContext context) {
+    final localization = context.l10n;
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (_, result) {
@@ -21,7 +23,7 @@ class _CategoriesListIteamState extends State<CategoriesListIteam> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Categories'),
+          title: Text(localization.categories),
           leading: IconButton(
             onPressed: context.read<TopNavBarProvider>().backToHomePage,
             icon: Icon(Icons.arrow_back_ios_new_rounded),

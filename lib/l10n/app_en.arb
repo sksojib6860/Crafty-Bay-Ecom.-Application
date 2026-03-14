@@ -29,7 +29,21 @@
     "verifyOtp": "Verify OTP",
     "resendOtp": "Resend",
     "thisCodeWillBeSend": "This code will be sent ",
-    "s" : "s"
+    "s" : "s",
+    "home" : "Home",
+    "categories" : "Categories",
+    "cart" : "Cart",
+    "wish" : "Wish",
+    "wishList" : "Wish List",
+    "search" : "Search",
+    "allCatogories" : "All Categories",
+    "popular": "Popular",
+    "special": "Special",
+    "nEw": "New",
+    "seeAll" : "See All",
+    "electronics": "Electronics",
+    "productsDetails" : "Products Details"
+
 
 
 

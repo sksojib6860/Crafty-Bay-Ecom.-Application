@@ -1,3 +1,4 @@
+import 'package:crafty_bay_app/app/extensions/language_extension.dart';
 import 'package:crafty_bay_app/app/extensions/utils_extension.dart';
 import 'package:crafty_bay_app/features/product/presentations/screen/reviews_screen.dart';
 import 'package:flutter/material.dart';
@@ -22,8 +23,9 @@ class ProductsDetailsScreen extends StatefulWidget {
 class _ProductsDetailsScreenState extends State<ProductsDetailsScreen> {
   @override
   Widget build(BuildContext context) {
+    final localization = context.l10n;
     return Scaffold(
-      appBar: AppBar(title: Text('Products Details')),
+      appBar: AppBar(title: Text(localization.productsDetails)),
       body: Column(
         children: [
           Expanded(

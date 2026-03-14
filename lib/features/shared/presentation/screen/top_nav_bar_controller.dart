@@ -1,3 +1,4 @@
+import 'package:crafty_bay_app/app/extensions/language_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -27,6 +28,8 @@ class _TopNavBarControllerState extends State<TopNavBarController> {
   //TODO: use provider , just create provider ,
   @override
   Widget build(BuildContext context) {
+    final localization = context.l10n;
+
     return Consumer<TopNavBarProvider>(
       builder: (context, topNavBarProvider, _) {
         return Scaffold(
@@ -43,18 +46,21 @@ class _TopNavBarControllerState extends State<TopNavBarController> {
             },
             labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
             destinations: [
-              NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+              NavigationDestination(
+                icon: Icon(Icons.home),
+                label: localization.home,
+              ),
               NavigationDestination(
                 icon: Icon(Icons.dashboard),
-                label: 'Categories',
+                label: localization.categories,
               ),
               NavigationDestination(
                 icon: Icon(Icons.add_shopping_cart_outlined),
-                label: 'Cart',
+                label: localization.cart,
               ),
               NavigationDestination(
                 icon: Icon(Icons.favorite_outline),
-                label: 'Wish',
+                label: localization.wishList,
               ),
             ],
           ),

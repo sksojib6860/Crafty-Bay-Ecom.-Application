@@ -1,3 +1,4 @@
+import 'package:crafty_bay_app/app/extensions/language_extension.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../app/app_color.dart';
@@ -13,6 +14,7 @@ class CategoryCard extends StatefulWidget {
 class _CategoryCardState extends State<CategoryCard> {
   @override
   Widget build(BuildContext context) {
+    final localization = context.l10n;
     return GestureDetector(
       onTap: () {
         _productListScreen();
@@ -30,7 +32,7 @@ class _CategoryCardState extends State<CategoryCard> {
             child: Icon(Icons.computer, size: 36, color: AppColor.themeColor),
           ),
           Text(
-            'Electronics',
+            localization.electronics,
             style: TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 9,

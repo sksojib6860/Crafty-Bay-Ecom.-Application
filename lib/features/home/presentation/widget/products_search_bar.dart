@@ -1,3 +1,4 @@
+import 'package:crafty_bay_app/app/extensions/language_extension.dart';
 import 'package:flutter/material.dart';
 
 class ProductSearchBar extends StatelessWidget {
@@ -5,6 +6,7 @@ class ProductSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localization = context.l10n;
     return TextField(
       decoration: InputDecoration(
         filled: true,
@@ -12,7 +14,7 @@ class ProductSearchBar extends StatelessWidget {
         contentPadding: EdgeInsetsGeometry.zero,
         prefixIcon: Icon(Icons.search_outlined),
         prefixIconColor: Colors.grey,
-        hintText: 'Search',
+        hintText: localization.search,
         hintStyle: TextStyle(fontSize: 12, color: Colors.grey),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),

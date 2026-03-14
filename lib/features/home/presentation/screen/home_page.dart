@@ -1,3 +1,4 @@
+import 'package:crafty_bay_app/app/extensions/language_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -19,6 +20,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final localization = context.l10n;
     return Scaffold(
       appBar: _buildAppBar(),
       body: SingleChildScrollView(
@@ -30,13 +32,16 @@ class _HomePageState extends State<HomePage> {
               ProductSearchBar(),
               const SizedBox(height: 16),
               HomeSlider(),
-              SectionHeader(title: 'All Categories', onTapSeeAll: () {}),
+              SectionHeader(
+                title: localization.allCatogories,
+                onTapSeeAll: () {},
+              ),
               HomeCategoryList(),
-              SectionHeader(title: 'Popular', onTapSeeAll: () {}),
+              SectionHeader(title: localization.popular, onTapSeeAll: () {}),
               HorizontalProductList(),
-              SectionHeader(title: 'Special', onTapSeeAll: () {}),
+              SectionHeader(title: localization.special, onTapSeeAll: () {}),
               HorizontalProductList(),
-              SectionHeader(title: 'New', onTapSeeAll: () {}),
+              SectionHeader(title: localization.nEw, onTapSeeAll: () {}),
               HorizontalProductList(),
             ],
           ),
