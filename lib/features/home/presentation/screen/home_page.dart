@@ -1,4 +1,6 @@
+import 'package:crafty_bay_app/app/controllers/auth_controller.dart';
 import 'package:crafty_bay_app/app/extensions/language_extension.dart';
+import 'package:crafty_bay_app/features/auth/presentations/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -62,6 +64,17 @@ class _HomePageState extends State<HomePage> {
         AppbarIconButton(
           icon: Icons.notifications_active_rounded,
           onTap: () {},
+        ),
+        AppbarIconButton(
+          icon: Icons.logout_rounded,
+          onTap: () {
+            AuthController.clearUserData();
+            Navigator.pushNamedAndRemoveUntil(
+              context,
+              LoginScreen.name,
+              (route) => false,
+            );
+          },
         ),
         const SizedBox(width: 8),
       ],
