@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../../cart/presentations/screen/cart_screen.dart';
 import '../../../category/presentation/screen/categories_list_iteam.dart';
+import '../../../home/presentation/provider/slider_providers.dart';
 import '../../../home/presentation/screen/home_page.dart';
 import '../../../wishlist/presentations/screen/wish_list_screen.dart';
 import '../providers/top_nav_bar_provider.dart';
@@ -24,6 +25,14 @@ class _TopNavBarControllerState extends State<TopNavBarController> {
     CartScreen(categoryName: 'Cart'),
     WishListScreen(categoryName: 'Wish List'),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      context.read<SliderProviders>().getHomeSliders();
+    });
+  }
 
   //TODO: use provider , just create provider ,
   @override

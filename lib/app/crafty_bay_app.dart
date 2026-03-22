@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
+import '../features/home/presentation/provider/slider_providers.dart';
 import '../l10n/app_localizations.dart';
 import 'app_routes.dart';
 import 'app_theme.dart';
@@ -21,6 +22,7 @@ class CraftyBayApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider(create: (_) => LanguageProviders()),
         ChangeNotifierProvider(create: (_) => TopNavBarProvider()),
+        ChangeNotifierProvider(create: (_) => SliderProviders()),
       ],
       child: Consumer<LanguageProviders>(
         builder: (context, languageProviders, child) {
