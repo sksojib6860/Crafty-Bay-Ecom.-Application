@@ -1,4 +1,5 @@
 import 'package:crafty_bay_app/app/extensions/language_extension.dart';
+import 'package:crafty_bay_app/features/category/presentation/providers/categories_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -21,7 +22,7 @@ class TopNavBarController extends StatefulWidget {
 class _TopNavBarControllerState extends State<TopNavBarController> {
   final List<Widget> _pages = [
     HomePage(),
-    CategoriesListIteam(),
+    CategoriesListItem(),
     CartScreen(categoryName: 'Cart'),
     WishListScreen(categoryName: 'Wish List'),
   ];
@@ -31,6 +32,7 @@ class _TopNavBarControllerState extends State<TopNavBarController> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       context.read<SliderProviders>().getHomeSliders();
+      context.read<CategoriesProvider>().getCategories();
     });
   }
 

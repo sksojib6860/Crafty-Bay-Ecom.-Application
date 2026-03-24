@@ -5,4 +5,6 @@ class Urls {
   static final String verifyOtpUrl = '$_baseUrl/auth/verify-otp';
   static final String signInUrl = '$_baseUrl/auth/login';
   static final String sliderUrl = '$_baseUrl/slides';
+  static String getCategoriesUrl(int pageNo, int pageSize) =>
+      '$_baseUrl/categories?page=$pageNo&count=$pageSize';
 }

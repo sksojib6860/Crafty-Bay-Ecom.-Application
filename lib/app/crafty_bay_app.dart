@@ -1,10 +1,11 @@
 import 'package:crafty_bay_app/app/providers/theme_provider.dart';
-import 'package:crafty_bay_app/features/shared/presentation/providers/top_nav_bar_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
+import '../features/category/presentation/providers/categories_provider.dart';
 import '../features/home/presentation/provider/slider_providers.dart';
+import '../features/shared/presentation/providers/top_nav_bar_provider.dart';
 import '../l10n/app_localizations.dart';
 import 'app_routes.dart';
 import 'app_theme.dart';
@@ -23,6 +24,7 @@ class CraftyBayApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => LanguageProviders()),
         ChangeNotifierProvider(create: (_) => TopNavBarProvider()),
         ChangeNotifierProvider(create: (_) => SliderProviders()),
+        ChangeNotifierProvider(create: (_) => CategoriesProvider()),
       ],
       child: Consumer<LanguageProviders>(
         builder: (context, languageProviders, child) {
