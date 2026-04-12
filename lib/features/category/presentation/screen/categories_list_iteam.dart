@@ -15,6 +15,7 @@ class CategoriesListItem extends StatefulWidget {
 
 class _CategoriesListItemState extends State<CategoriesListItem> {
   final ScrollController _scrollController = ScrollController();
+
   @override
   void initState() {
     super.initState();
@@ -64,7 +65,12 @@ class _CategoriesListItemState extends State<CategoriesListItem> {
                         mainAxisSpacing: 4,
                       ),
                       itemBuilder: (context, index) {
-                        return FittedBox(child: CategoryCard());
+                        return FittedBox(
+                          child: CategoryCard(
+                            categoriesModel:
+                                categoryListProvider.categories[index],
+                          ),
+                        );
                       },
                     ),
                   ),
@@ -83,5 +89,3 @@ class _CategoriesListItemState extends State<CategoriesListItem> {
     context.read<TopNavBarProvider>().backToHomePage();
   }
 }
-
-///E-Commerce Project 2!!! pause 50 min

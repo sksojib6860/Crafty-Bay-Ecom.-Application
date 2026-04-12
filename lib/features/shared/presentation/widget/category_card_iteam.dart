@@ -1,23 +1,24 @@
-import 'package:crafty_bay_app/app/extensions/language_extension.dart';
+import 'package:crafty_bay_app/features/category/presentation/model/categories_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../app/app_color.dart';
 import '../../../product/presentations/screen/product_list_screen.dart';
 
-class CategoryCard extends StatefulWidget {
-  const CategoryCard({super.key});
+class CategoryCard extends StatelessWidget {
+  const CategoryCard({super.key, required this.categoriesModel});
 
-  @override
-  State<CategoryCard> createState() => _CategoryCardState();
-}
+  final CategoriesModel categoriesModel;
 
-class _CategoryCardState extends State<CategoryCard> {
   @override
   Widget build(BuildContext context) {
-    final localization = context.l10n;
+    //final localization = context.l10n;
     return GestureDetector(
       onTap: () {
-        _productListScreen();
+        Navigator.pushNamed(
+          context,
+          ProductListScreen.name,
+          arguments: categoriesModel.title,
+        );
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -29,10 +30,18 @@ class _CategoryCardState extends State<CategoryCard> {
               color: AppColor.themeColor.withAlpha(30),
               borderRadius: BorderRadius.circular(8),
             ),
-            child: Icon(Icons.computer, size: 36, color: AppColor.themeColor),
+            child: Image.network(
+              categoriesModel.icon,
+              width: 30,
+              height: 30,
+              errorBuilder: (context, error, loadingError) {
+                return Icon(Icons.error_outline);
+              },
+            ),
           ),
           Text(
-            localization.electronics,
+            //  localization.title
+            categoriesModel.title,
             style: TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 9,
@@ -41,14 +50,6 @@ class _CategoryCardState extends State<CategoryCard> {
           ),
         ],
       ),
-    );
-  }
-
-  void _productListScreen() {
-    Navigator.pushNamed(
-      context,
-      ProductListScreen.name,
-      arguments: 'Electronics',
     );
   }
 }
